@@ -37,7 +37,7 @@ const BookingCard = ({ booking, isAdmin, onUpdate }) => {
         try {
           const user = JSON.parse(localStorage.getItem('user'));
           
-          const res = await fetch(`https://room-booking-server-j6su.onrender.com/api/bookings/cancel/${booking._id}`, {
+          const res = await fetch(`https://room-booking-server-f5ev.onrender.com/api/bookings/cancel/${booking._id}`, {
             method: 'PUT', 
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -85,7 +85,7 @@ const BookingCard = ({ booking, isAdmin, onUpdate }) => {
         setActiveAction('approve');
         try {
           const user = JSON.parse(localStorage.getItem('user'));
-          const res = await fetch(`https://room-booking-server-j6su.onrender.com/api/bookings/approve/${booking._id}`, {
+          const res = await fetch(`https://room-booking-server-f5ev.onrender.com/api/bookings/approve/${booking._id}`, {
             method: 'PUT',
             headers: {
               Authorization: `Bearer ${user.token}`,
@@ -137,7 +137,7 @@ const BookingCard = ({ booking, isAdmin, onUpdate }) => {
       setActiveAction('reject');
       try {
         const user = JSON.parse(localStorage.getItem('user'));
-        const res = await fetch(`https://room-booking-server-j6su.onrender.com/api/bookings/reject/${booking._id}`, {
+        const res = await fetch(`https://room-booking-server-f5ev.onrender.com/api/bookings/reject/${booking._id}`, {
           method: 'PUT',
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -186,7 +186,7 @@ const BookingCard = ({ booking, isAdmin, onUpdate }) => {
         setActiveAction('delete');
         try {
           const user = JSON.parse(localStorage.getItem('user'));
-          const res = await fetch(`https://room-booking-server-j6su.onrender.com/api/bookings/delete/${booking._id}`, {
+          const res = await fetch(`https://room-booking-server-f5ev.onrender.com/api/bookings/delete/${booking._id}`, {
             method: 'DELETE',
             headers: {
               Authorization: `Bearer ${user.token}`,

@@ -15,7 +15,7 @@ const MyBookings = () => {
   const fetchBookings = async () => {
     setLoading(true);
     try {
-      const res = await fetch('https://room-booking-server-j6su.onrender.com/api/bookings/user', {
+      const res = await fetch('https://room-booking-server-f5ev.onrender.com/api/bookings/user', {
         headers: {
           Authorization: `Bearer ${user.token}`,
         },
@@ -46,7 +46,7 @@ const MyBookings = () => {
     if (!window.confirm('Are you sure you want to cancel this booking?')) return;
     
     try {
-      const res = await fetch(`https://room-booking-server-j6su.onrender.com/api/bookings/${bookingId}/cancel`, {
+      const res = await fetch(`https://room-booking-server-f5ev.onrender.com/api/bookings/${bookingId}/cancel`, {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -70,7 +70,7 @@ const MyBookings = () => {
     
     setDeleteLoading(true);
     try {
-      const res = await fetch(`https://room-booking-server-j6su.onrender.com/api/bookings/delete/${bookingId}`, {
+      const res = await fetch(`https://room-booking-server-f5ev.onrender.com/api/bookings/delete/${bookingId}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${user.token}`,
@@ -191,7 +191,7 @@ const MyBookings = () => {
                   const cancelledBookings = bookings.filter(b => b.status === 'cancelled');
                   Promise.all(
                     cancelledBookings.map(booking => 
-                      fetch(`https://room-booking-server-j6su.onrender.com/api/bookings/${booking._id}`, {
+                      fetch(`https://room-booking-server-f5ev.onrender.com/api/bookings/${booking._id}`, {
                         method: 'DELETE',
                         headers: {
                           Authorization: `Bearer ${user.token}`,

@@ -19,7 +19,7 @@ const LoginPage = () => {
     setIsLoading(true);
     
     try {
-      const res = await fetch('https://room-booking-server-j6su.onrender.com/api/auth/login', {
+      const res = await fetch('https://room-booking-server-f5ev.onrender.com/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })

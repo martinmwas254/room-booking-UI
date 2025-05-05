@@ -39,7 +39,7 @@ const HomePage = () => {
   }, [filters]);
 
   useEffect(() => {
-    fetch('https://room-booking-server-j6su.onrender.com/api/rooms')
+    fetch('https://room-booking-server-f5ev.onrender.com/api/rooms')
       .then(res => res.json())
       .then(data => setRooms(data))
       .catch(err => console.error(err));
@@ -84,7 +84,7 @@ const HomePage = () => {
         throw new Error('You must be logged in to calculate booking cost');
       }
       
-      const response = await fetch('https://room-booking-server-j6su.onrender.com/api/bookings/calculate', {
+      const response = await fetch('https://room-booking-server-f5ev.onrender.com/api/bookings/calculate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -127,7 +127,7 @@ const HomePage = () => {
         throw new Error('You must be logged in to make a booking');
       }
       
-      const response = await fetch('https://room-booking-server-j6su.onrender.com/api/bookings', {
+      const response = await fetch('https://room-booking-server-f5ev.onrender.com/api/bookings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-const API_URL = 'https://room-booking-server-j6su.onrender.com/api';
+const API_URL = 'https://room-booking-server-f5ev.onrender.com/api';
 
 // Fetch all rooms
 export const fetchRooms = async (token) => {

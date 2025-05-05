@@ -33,7 +33,7 @@
 //     const fetchRooms = async () => {
 //       try {
 //         setLoading(true);
-//         const res = await fetch('https://room-booking-server-j6su.onrender.com/api/rooms', {
+//         const res = await fetch('https://room-booking-server-f5ev.onrender.com/api/rooms', {
 //           headers: {
 //             Authorization: `Bearer ${user?.token}`
 //           }
@@ -75,7 +75,7 @@
 //     setSubmitStatus({ loading: true, error: null, success: false });
 
 //     try {
-//       const res = await fetch('https://room-booking-server-j6su.onrender.com/api/bookings', {
+//       const res = await fetch('https://room-booking-server-f5ev.onrender.com/api/bookings', {
 //         method: 'POST',
 //         headers: {
 //           'Content-Type': 'application/json',

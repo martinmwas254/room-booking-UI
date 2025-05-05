@@ -4,7 +4,7 @@ export const api = async (endpoint, method = 'GET', body = null, token = null) =
     };
     if (token) headers['Authorization'] = `Bearer ${token}`;
   
-    const res = await fetch(`https://room-booking-server-j6su.onrender.com/api/${endpoint}`, {
+    const res = await fetch(`https://room-booking-server-f5ev.onrender.com/api/${endpoint}`, {
       method,
       headers,
       body: body ? JSON.stringify(body) : null,
