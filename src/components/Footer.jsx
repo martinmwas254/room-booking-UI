@@ -142,7 +142,7 @@ const Footer = () => {
           </form> */}
         </div>
       </div>
-      <p className='text-center bg-white'>Designed by <a href='https://vextech.netlify.app/' className='text-blue-600' target="_blank"> Vextech Solutions</a>.</p>
+      <p className='text-center bg-white'>Designed by <a href='https://vextech.netlify.app/' className='text-blue-600' target="_blank"> tech Solutions</a>.</p>
     </footer>
   );
 };
