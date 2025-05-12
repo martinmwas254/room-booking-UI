@@ -3,7 +3,12 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 
 const RegisterPage = () => {
-  const [form, setForm] = useState({ username: '', email: '', password: '', dob: '', isAdmin: false });
+  const [form, setForm] = useState({ 
+    username: '', 
+    email: '', 
+    password: '',
+    confirmPassword: ''
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
@@ -15,14 +20,21 @@ const RegisterPage = () => {
     setIsLoading(true);
     setError(null);
     
+    // Check if passwords match
+    if (form.password !== form.confirmPassword) {
+      setError('Passwords do not match');
+      setIsLoading(false);
+      return;
+    }
+    
     try {
+      // Create a new object without confirmPassword for the API call
+      const { confirmPassword, ...registrationData } = form;
+      
       const res = await fetch('https://room-booking-server-f5ev.onrender.com/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          isAdmin: form.isAdmin === 'true'  // Convert string to boolean
-        })
+        body: JSON.stringify(registrationData)
       });
       
       const data = await res.json();
@@ -111,28 +123,15 @@ const RegisterPage = () => {
           </div>
           
           <div>
-            <label htmlFor="dob" className="block text-sm font-medium text-gray-700">Date of Birth</label>
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">Confirm Password</label>
             <input
-              id="dob"
-              type="date"
-              value={form.dob}
-              onChange={(e) => setForm({ ...form, dob: e.target.value })}
+              id="confirmPassword"
+              type="password"
+              value={form.confirmPassword}
+              onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })}
               className="mt-1 appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               required
             />
-          </div>
-          
-          <div>
-            <label htmlFor="role" className="block text-sm font-medium text-gray-700">Account Type</label>
-            <select
-              id="role"
-              value={form.isAdmin}
-              onChange={(e) => setForm({ ...form, isAdmin: e.target.value })}
-              className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            >
-              <option value="false">Regular User</option>
-              <option value="true">Administrator</option>
-            </select>
           </div>
           
           <div>
