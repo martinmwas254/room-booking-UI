@@ -47,7 +47,7 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center space-x-2">
               <span className="text-2xl">🏨</span>
-              <span className="font-bold text-xl hidden sm:block">HotelRoomBooking</span>
+              <span className="font-bold text-xl hidden sm:block">RoomBooking</span>
             </Link>
           </div>
 
